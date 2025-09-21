@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://60cdydp01m6y"]
+
+[ext_resource type="Script" uid="uid://ctf4mtgueycas" path="res://scripts/menu_opções.gd" id="1_u24bi"]
+[ext_resource type="Script" uid="uid://bep0o6vo2dtwa" path="res://scripts/mostrar_fps.gd" id="2_5mrvg"]
+
+[node name="menu_opções" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u24bi")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -22.0
+offset_top = -19.0
+offset_right = 1168.0
+offset_bottom = 669.0
+color = Color(0, 0, 0, 1)
+
+[node name="Título Página" type="Label" parent="."]
+layout_mode = 0
+offset_right = 191.0
+offset_bottom = 36.0
+theme_override_font_sizes/font_size = 50
+text = "Opções e Configurações"
+
+[node name="Botão_voltar" type="Button" parent="." groups=["botão_redirecionar"]]
+layout_mode = 0
+offset_left = 1023.0
+offset_top = 8.0
+offset_right = 1105.0
+offset_bottom = 56.0
+theme_override_font_sizes/font_size = 35
+text = "Voltar
+"
+
+[node name="Botão_sair" type="Button" parent="." groups=["botão_redirecionar"]]
+layout_mode = 0
+offset_left = 1032.0
+offset_top = 580.0
+offset_right = 1125.0
+offset_bottom = 639.0
+theme_override_font_sizes/font_size = 35
+text = "Sair"
+
+[node name="Mostrar_fps" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 150.0
+offset_right = 172.0
+offset_bottom = 181.0
+text = "Mostrar FPS"
+script = ExtResource("2_5mrvg")

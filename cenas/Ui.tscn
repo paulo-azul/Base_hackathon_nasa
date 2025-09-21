@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://b3tdms6jgli54"]
+
+[ext_resource type="Script" uid="uid://dgv7jv830wxxr" path="res://scripts/estamina.gd" id="1_f7gmk"]
+[ext_resource type="Script" uid="uid://7te4np0kr4hu" path="res://scripts/mostrador_de_fps.gd" id="1_jvefy"]
+[ext_resource type="Script" uid="uid://r61k8ijiceuk" path="res://scripts/ui.gd" id="1_nnx3w"]
+
+[sub_resource type="Gradient" id="Gradient_15dsx"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8v4ht"]
+gradient = SubResource("Gradient_15dsx")
+fill_from = Vector2(1, 1)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_4y2i1"]
+offsets = PackedFloat32Array(0.661972)
+colors = PackedColorArray(0.375062, 0.504109, 0.186356, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ogt8j"]
+gradient = SubResource("Gradient_4y2i1")
+fill_from = Vector2(0.373786, 0.424757)
+fill_to = Vector2(0.754854, 0.487864)
+
+[node name="Interface" type="CanvasLayer"]
+script = ExtResource("1_nnx3w")
+
+[node name="Estamina" type="TextureProgressBar" parent="."]
+offset_left = 5.0
+offset_top = 12.0
+offset_right = 430.0
+offset_bottom = 76.0
+value = 100.0
+nine_patch_stretch = true
+texture_under = SubResource("GradientTexture2D_8v4ht")
+texture_progress = SubResource("GradientTexture2D_ogt8j")
+script = ExtResource("1_f7gmk")
+
+[node name="Mostrador de FPS" type="Label" parent="."]
+offset_left = 1018.0
+offset_top = 30.0
+offset_right = 1074.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 25
+text = "FPS: "
+script = ExtResource("1_jvefy")

@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://b76f78nl41lbp"]
+
+[ext_resource type="PackedScene" uid="uid://dv7fypwj7u0l8" path="res://cenas/mundo/node_2d.tscn" id="1_32vai"]
+[ext_resource type="PackedScene" uid="uid://dvlu12pvr4edg" path="res://cenas/player.tscn" id="2_1frua"]
+[ext_resource type="PackedScene" uid="uid://b3tdms6jgli54" path="res://cenas/Ui.tscn" id="3_1frua"]
+
+[node name="jogo" type="Node2D"]
+
+[node name="mundo" parent="." instance=ExtResource("1_32vai")]
+
+[node name="Player" parent="." instance=ExtResource("2_1frua")]
+position = Vector2(329, 190)
+
+[node name="Interface" parent="." instance=ExtResource("3_1frua")]
