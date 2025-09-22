@@ -1,7 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://bd4urr6pk8415"]
+[gd_scene load_steps=10 format=3 uid="uid://bd4urr6pk8415"]
 
 [ext_resource type="Script" uid="uid://bt4tw1j5a2kmn" path="res://scripts/menu_inicial.gd" id="1_omb8n"]
 [ext_resource type="Texture2D" uid="uid://kc8huw6q0r0h" path="res://img/fundo_menu.png" id="2_omb8n"]
+[ext_resource type="AudioStream" uid="uid://dyoqoqli15v2n" path="res://audios/menu_sound.mp3" id="3_cf1la"]
+[ext_resource type="AudioStream" uid="uid://ccqxot4iypavx" path="res://audios/but_ent.mp3" id="4_i6auh"]
+[ext_resource type="AudioStream" uid="uid://d32comvgfkayh" path="res://audios/but_out.mp3" id="5_5hmyj"]
+[ext_resource type="Script" uid="uid://duj7ldjquuih1" path="res://scripts/som_botões.gd" id="6_8mewt"]
+[ext_resource type="Script" uid="uid://c6h57k3rd5mxn" path="res://scripts/som_out.gd" id="8_go3jw"]
 
 [sub_resource type="FontFile" id="FontFile_omb8n"]
 cache/0/50/0/ascent = 0.0
@@ -99,3 +104,16 @@ modulate = Color(0.215686, 0.741176, 0.690196, 1)
 layout_mode = 2
 text = "Paulo Teles"
 flat = true
+
+[node name="Musica_menu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_cf1la")
+autoplay = true
+parameters/looping = true
+
+[node name="Som_botão" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_i6auh")
+script = ExtResource("6_8mewt")
+
+[node name="som_out" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_5hmyj")
+script = ExtResource("8_go3jw")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2ogrqebxtet1"
-path="res://.godot/imported/Owlet_Monster_Run_6.png-d880bbbc330a77037339e8718c5062aa.ctex"
+uid="uid://b6ptmsr66p47g"
+path="res://.godot/imported/sprite andando cima.png-f15ad6fd1c87b0107871b02430f6ed25.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/craftpix-net-622999-free-pixel-art-tiny-hero-sprites/2 Owlet_Monster/Owlet_Monster_Run_6.png"
-dest_files=["res://.godot/imported/Owlet_Monster_Run_6.png-d880bbbc330a77037339e8718c5062aa.ctex"]
+source_file="res://sprites/craftpix-net-622999-free-pixel-art-tiny-hero-sprites/2 Owlet_Monster/sprite andando cima.png"
+dest_files=["res://.godot/imported/sprite andando cima.png-f15ad6fd1c87b0107871b02430f6ed25.ctex"]
 
 [params]
 

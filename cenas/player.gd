@@ -14,9 +14,9 @@ var velocidade
 func _physics_process(delta: float) -> void:
 	
 	if correr == false:
-		velocidade = 150
+		velocidade = 50
 	else:
-		velocidade = 300
+		velocidade = 150
 
 	direçãoY = Input.get_axis("cima", "baixo")
 	if direçãoY:

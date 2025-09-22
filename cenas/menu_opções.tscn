@@ -1,7 +1,48 @@
-[gd_scene load_steps=3 format=3 uid="uid://60cdydp01m6y"]
+[gd_scene load_steps=13 format=3 uid="uid://60cdydp01m6y"]
 
 [ext_resource type="Script" uid="uid://ctf4mtgueycas" path="res://scripts/menu_opções.gd" id="1_u24bi"]
 [ext_resource type="Script" uid="uid://bep0o6vo2dtwa" path="res://scripts/mostrar_fps.gd" id="2_5mrvg"]
+[ext_resource type="AudioStream" uid="uid://ccqxot4iypavx" path="res://audios/but_ent.mp3" id="3_c2ndt"]
+[ext_resource type="AudioStream" uid="uid://d32comvgfkayh" path="res://audios/but_out.mp3" id="4_dfoys"]
+[ext_resource type="Script" uid="uid://duj7ldjquuih1" path="res://scripts/som_botões.gd" id="4_fpirj"]
+[ext_resource type="Script" uid="uid://m8rfsu6imfe6" path="res://scripts/config_som.gd" id="5_w7p6u"]
+[ext_resource type="Script" uid="uid://c6h57k3rd5mxn" path="res://scripts/som_out.gd" id="6_g2fei"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dfoys"]
+bg_color = Color(0.598476, 0.603182, 0.581505, 1)
+border_width_left = 90
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+expand_margin_left = 90.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7p6u"]
+bg_color = Color(0.40189, 0.671604, 0.47983, 1)
+expand_margin_top = 3.0
+expand_margin_right = 11.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_w7p6u"]
+font_color = Color(0.253843, 0.253843, 0.253843, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fpirj"]
+bg_color = Color(0.4, 0.670588, 0.478431, 1)
+expand_margin_top = 3.0
+expand_margin_right = 11.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g2fei"]
+bg_color = Color(0.4, 0.670588, 0.478431, 1)
+expand_margin_top = 3.0
+expand_margin_right = 11.0
+expand_margin_bottom = 3.0
 
 [node name="menu_opções" type="Control"]
 layout_mode = 3
@@ -14,10 +55,10 @@ script = ExtResource("1_u24bi")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = -22.0
-offset_top = -19.0
-offset_right = 1168.0
-offset_bottom = 669.0
+offset_left = -15.0
+offset_top = -20.0
+offset_right = 1175.0
+offset_bottom = 668.0
 color = Color(0, 0, 0, 1)
 
 [node name="Título Página" type="Label" parent="."]
@@ -54,3 +95,77 @@ offset_right = 172.0
 offset_bottom = 181.0
 text = "Mostrar FPS"
 script = ExtResource("2_5mrvg")
+
+[node name="som_botões" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_c2ndt")
+script = ExtResource("4_fpirj")
+
+[node name="som_out" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_dfoys")
+script = ExtResource("6_g2fei")
+
+[node name="Config_som" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 106.0
+offset_top = 220.0
+offset_right = 380.0
+offset_bottom = 260.0
+theme_override_constants/separation = 20
+script = ExtResource("5_w7p6u")
+
+[node name="Som geral" type="HSlider" parent="Config_som"]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxFlat_dfoys")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_w7p6u")
+value = 100.0
+
+[node name="Label" type="Label" parent="Config_som/Som geral"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.058
+offset_left = -67.108
+offset_top = -4.0
+offset_right = -3.0
+offset_bottom = 19.0
+text = "Som Geral"
+label_settings = SubResource("LabelSettings_w7p6u")
+
+[node name="Musica" type="HSlider" parent="Config_som"]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxFlat_dfoys")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_fpirj")
+value = 100.0
+
+[node name="Label" type="Label" parent="Config_som/Musica"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.058
+offset_left = -67.108
+offset_top = -4.0
+offset_right = -3.0
+offset_bottom = 19.0
+text = "Músicas"
+label_settings = SubResource("LabelSettings_w7p6u")
+
+[node name="Efeitos" type="HSlider" parent="Config_som"]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxFlat_dfoys")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_g2fei")
+value = 100.0
+
+[node name="Label" type="Label" parent="Config_som/Efeitos"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.056
+anchor_bottom = 0.469
+offset_left = -67.656
+offset_top = -4.0
+offset_right = -3.0
+offset_bottom = 11.496
+text = "Efeitos 
+"
+label_settings = SubResource("LabelSettings_w7p6u")
+
+[connection signal="value_changed" from="Config_som/Som geral" to="Config_som" method="_on_som_geral_value_changed"]
+[connection signal="value_changed" from="Config_som/Musica" to="Config_som" method="_on_musica_value_changed"]
+[connection signal="value_changed" from="Config_som/Efeitos" to="Config_som" method="_on_efeitos_value_changed"]
