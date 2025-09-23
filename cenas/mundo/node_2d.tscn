@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=4 uid="uid://dv7fypwj7u0l8"]
+[gd_scene load_steps=3 format=4 uid="uid://dv7fypwj7u0l8"]
 
 [ext_resource type="TileSet" uid="uid://bk34s5ak3x6x4" path="res://tileset/node_2d.tres" id="1_i73j3"]
+[ext_resource type="PackedScene" uid="uid://dwh1frjccfq4b" path="res://cenas/árvore.tscn" id="2_sffbn"]
 
 [node name="mundo" type="Node2D"]
 
@@ -14,3 +15,7 @@ tile_set = ExtResource("1_i73j3")
 
 [node name="Objetos" type="TileMapLayer" parent="."]
 tile_set = ExtResource("1_i73j3")
+
+[node name="Árvore" parent="." instance=ExtResource("2_sffbn")]
+position = Vector2(1023, 131)
+scale = Vector2(0.1, 0.1)

@@ -19,15 +19,19 @@ func _physics_process(delta: float) -> void:
 		velocidade = 150
 
 	direçãoY = Input.get_axis("cima", "baixo")
+	direçãoX = Input.get_axis("esquerda", "direita")
+	var direcao_input = Vector2(direçãoX, direçãoY)
+	direcao_input = direcao_input.normalized()
+	
 	if direçãoY:
-		velocity.y = direçãoY * velocidade
+		velocity.y = direcao_input.y * velocidade
 	else:
 		velocity.y = move_toward(velocity.y, 0, velocidade)
 
 
-	direçãoX = Input.get_axis("esquerda", "direita")
+
 	if direçãoX:
-		velocity.x = direçãoX * velocidade
+		velocity.x = direcao_input.x * velocidade
 	else:
 		velocity.x = move_toward(velocity.x, 0, velocidade)
 	

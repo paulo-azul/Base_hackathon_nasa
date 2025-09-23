@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://dwh1frjccfq4b"]
+
+[ext_resource type="Texture2D" uid="uid://ddk0ehogq0q0i" path="res://img/3ba7f5e5bfdbcd2c2e6259a97ad48978-removebg-preview.png" id="1_rtdtl"]
+[ext_resource type="Texture2D" uid="uid://bnhxnibp6mafh" path="res://img/textura_foia.png" id="2_lnfc1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lnfc1"]
+size = Vector2(345, 649)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k82kh"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 2
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_eag8h"]
+offsets = PackedFloat32Array(0, 0.192098, 0.792916, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wdvny"]
+gradient = SubResource("Gradient_eag8h")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rtdtl"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(300, 300, 1)
+spread = 20.0
+initial_velocity_min = 20.0
+initial_velocity_max = 80.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 20.0
+gravity = Vector3(0, 20, 0)
+scale_min = 0.0
+scale_max = 0.1
+color_ramp = SubResource("GradientTexture1D_wdvny")
+anim_offset_min = 1.0
+anim_offset_max = 1.0
+
+[node name="Árvore" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -4.5)
+shape = SubResource("RectangleShape2D_lnfc1")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 0)
+texture = ExtResource("1_rtdtl")
+
+[node name="efeito_folha" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_k82kh")
+position = Vector2(-11, 127)
+amount = 5
+texture = ExtResource("2_lnfc1")
+lifetime = 3.0
+randomness = 0.33
+visibility_rect = Rect2(-5000, -10000, 100000, 40000)
+process_material = SubResource("ParticleProcessMaterial_rtdtl")
